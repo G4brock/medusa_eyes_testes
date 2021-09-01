@@ -1,4 +1,4 @@
-import * as mongoose from 'mongoose';
+/*import * as mongoose from 'mongoose';
 import { StatusAnalise } from '../analises.model';
 
 export const AnaliseSchema = new mongoose.Schema({
@@ -6,4 +6,4 @@ export const AnaliseSchema = new mongoose.Schema({
     timestamp: String,
     enderecos: [],
     status: StatusAnalise,
-})
+})*/
