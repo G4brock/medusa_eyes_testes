@@ -2,7 +2,7 @@ import { Body, Controller, Get, Post, UploadedFile, UseInterceptors } from '@nes
 import { timestamp } from 'rxjs';
 import { AnalisesService } from './analises.service';
 import { editFileName } from '../gerenciador-img/gerenciador-img.utils';
-import { FileInterceptor } from '@nestjs/platform-express';
+import { AnyFilesInterceptor, FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage} from 'multer';
 
 
@@ -29,7 +29,7 @@ export class AnalisesController {
 
     //para teste
 
-    @Post('upload')
+   @Post('upload')
     @UseInterceptors(FileInterceptor('file', {
         storage: diskStorage({
             destination: `./uploads`,//Criar função para retornar o diretorio baseado no evento e separa as imagens por diretorio
@@ -42,5 +42,19 @@ export class AnalisesController {
         ) {
             return this.analisesServie.postAdc(ataque, file.path);
         //return this.gerenciadorImg.postAdc(ataque);
+    }
+
+    @Post('uploadv2')
+    @UseInterceptors(AnyFilesInterceptor({
+        storage: diskStorage({
+            destination: `./uploads`,//Criar função para retornar o diretorio baseado no evento e separa as imagens por diretorio
+            filename: editFileName,
+        })
+    }))
+    uploadFileV2(
+        @UploadedFile() file: Express.Multer.File,
+        @Body('ataque') ataque: String
+        ) {
+            //return this.analisesServie.postAdc(ataque, file.path);
     }
 }
