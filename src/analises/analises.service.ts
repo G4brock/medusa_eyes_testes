@@ -63,5 +63,13 @@ export class AnalisesService {
             return 1;
     }
 
+    postTeste(files: Array<Express.Multer.File>){//transformar em uma função recursiva
+        let { enderecos } = this.eventos[this.eventos.length-1];
+        for(let i = 0; i < files.length; i++){
+            enderecos.push(files[i].path);
+        }
+
+        return this.eventos;
+    }
     
 }

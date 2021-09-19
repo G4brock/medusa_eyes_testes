@@ -53,7 +53,7 @@ export class AnalisesController {
     uploadFileV2(
         @UploadedFiles() files: Array<Express.Multer.File>
         ) {
-            console.log(files);
-            //return this.analisesServie.postAdc(files);
+            //console.log(files);
+            return this.analisesServie.postTeste(files);
     }
 }

@@ -11,12 +11,6 @@ import { MongooseModule } from '@nestjs/mongoose';
   imports: [
     GerenciadorImgModule,
     AnalisesModule,
-<<<<<<< HEAD
-    /*MongooseModule.forRoot('mongodb+srv://DB-User:xqfCsYXxLCrINUbW@images.15rde.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
-  */],
-=======
-    //MongooseModule.forRoot('mongodb+srv://DB-User:xqfCsYXxLCrINUbW@images.15rde.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
   ],
->>>>>>> 6dff26eb7f6115a4b4a09402f8b385a89b335a3a
 })
 export class AppModule {}
