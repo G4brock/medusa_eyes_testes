@@ -1,5 +1,4 @@
-import { Body, Controller, Get, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
-import { timestamp } from 'rxjs';
+import { Body, Controller, Get, Post, UploadedFile, UploadedFiles, UseInterceptors } from '@nestjs/common';
 import { AnalisesService } from './analises.service';
 import { editFileName } from '../gerenciador-img/gerenciador-img.utils';
 import { AnyFilesInterceptor, FileInterceptor } from '@nestjs/platform-express';
@@ -52,9 +51,9 @@ export class AnalisesController {
         })
     }))
     uploadFileV2(
-        @UploadedFile() file: Express.Multer.File,
-        @Body('ataque') ataque: String
+        @UploadedFiles() files: Array<Express.Multer.File>
         ) {
-            //return this.analisesServie.postAdc(ataque, file.path);
+            console.log(files);
+            //return this.analisesServie.postAdc(files);
     }
 }
